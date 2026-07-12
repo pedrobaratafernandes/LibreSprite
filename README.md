@@ -12,6 +12,14 @@ LibreSprite is a free and open source program for creating and animating your sp
 * Pixel precise tools like filled contour, polygon, shading mode, etc.
 * Several file types supported for your sprites and animations.
 
+## ZX Spectrum Support
+LibreSprite includes a powerful, built-in `.asm` exporter specifically designed for ZX Spectrum homebrew development. 
+- **Automatic 8x8 Block Grid:** Your image is automatically divided into standard 8x8 pixel blocks during export.
+- **Ink and Paper Detection:** You don't need to manually configure Ink or Paper colors. The exporter counts the colors used in each 8x8 block. The most used color becomes the **Paper** (background), and the second most used becomes the **Ink** (foreground). 
+- **Automatic Color Clash:** If you use more than 2 colors inside the same 8x8 block, the exporter will automatically preserve the two most used colors and assign the remaining pixels to the Paper color, perfectly simulating the classic ZX Spectrum Color Clash hardware limitation.
+- **Nearest Color Matching:** No matter what RGB colors you draw with, the exporter will automatically convert every pixel to the closest hardware color from the official 15-color ZX Spectrum palette.
+- **Sprite Deduplication:** Repeated 8x8 blocks are deduplicated to save memory, producing a highly optimized `map_array` and individual sprite definitions ready for `ZXSpriter` or your own game engine!
+
 ## Download
 Get the [latest release](https://github.com/LibreSprite/LibreSprite/releases/latest) for Linux, MacOS, Windows or Android.
 
